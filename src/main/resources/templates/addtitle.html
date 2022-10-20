@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Titles</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+
+<body>
+	<h1>Add title</h1>
+	<div>
+	
+		<form th:object="${add}" th:action="@{save}" action="#" method="post">
+		
+			<div>
+		  	<label for="name">Title</label>
+			<input type="text" id="name" th:field="*{name}" />
+			</div>
+			
+			<div>
+		  	<label for="recommend">Who recommended it?</label>
+			<input type="text" id="recommend" th:field="*{recommend}" />
+			</div>
+			
+			<div>
+			<label for="softwarelist">Where to watch?</label>
+			<select id="softwarelist" th:field ="*{software}" class = "form-control">
+				<option th:each="software: ${softwares}" th:value="${software.id}" th:text="${software.name}"></option>
+			</select>
+			</div>
+			
+			<div>
+			<label for="type">Series or a movie?</label>
+			<select id="type" th:field ="*{type}" class = "form-control">
+				<option value="Series">Series</option>
+    			<option value="Movie">Movie</option>
+			</select>
+			</div>
+			
+			<div>
+			<label for="grade">Grade?(/10)</label>
+			<input type="number" id="grade" th:field="*{grade}" />
+			</div>
+			
+			<div>
+			<label for="categorylist">Category?</label>
+			<select id="categorylist" th:field ="*{category}" class = "form-control">
+				<option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+			</select>
+			</div>
+			
+			<div>
+			<label for="seen">Have you seen it?</label>
+			<select id="seen" th:field ="*{watched}" class = "form-control">
+				<option value="No">No</option>
+    			<option value="Yes">Yes</option>
+			</select>
+			</div>
+			
+			
+			
+			<input type="submit" value="Save"></input>
+			
+		</form>
+	</div>
+</body>
+</html>
