@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit entry</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+
+<body style="margin: 15px">
+
+	<h1>How was </h1>
+	<h1 th:text=${tittel.name}></h1>
+	
+		<div th:replace="navbar.html">
+	</div>
+	
+	<div>
+		<form th:object="${edit}" th:action="@{/save}" action="#" method="post">
+		
+			<input type="hidden" id="id" th:field="*{id}" />
+			
+			<input type="hidden" id="name" th:field="*{name}" />
+			
+			<input type="hidden" id="recommend" th:field="*{recommend}"/>
+			
+			<div>
+			<label for="softwarelist">Software</label>
+			<select id="softwarelist" th:field ="*{software}" class = "form-control">
+				<option th:each="software: ${softwares}" th:value="${software.id}" th:text="${software.name}"></option>
+			</select>
+			</div>
+			
+			<div>
+			<label for="categorylist">Category</label>
+			<select id="categorylist" th:field ="*{category}" class = "form-control">
+				<option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+			</select>
+			</div>
+			
+			<input type="hidden" id="type" th:field="*{type}" />
+			
+			<div>
+			<label for="grade">Grade</label>
+			<input type="number" id="grade" th:field="*{grade}" />
+			</div>
+			
+			<div>
+			<label for="seen">Have you seen it?</label>
+			<select id="seen" th:field ="*{watched}" class = "form-control">
+    			<option value="Yes">Yes</option>
+			</select>
+			</div>
+			
+			
+			<input type="submit" value="Save"></input>
+			
+		</form>
+	</div>
+</body>
+</html>

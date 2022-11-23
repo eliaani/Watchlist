@@ -26,12 +26,12 @@ public class WatchlistRestController {
 	CategoryRepository categoryRepository;
 	
     @RequestMapping(value="/titles", method = RequestMethod.GET)
-    public List<Title> bookListRest() {	
+    public List<Title> titlesRest() {	
         return (List<Title>) titleRepository.findAll();
     }    
 
     @RequestMapping(value="/title/{id}", method = RequestMethod.GET)
-    public Optional<Title> findStudentRest(@PathVariable("id") Long titleId) {	
+    public Optional<Title> findTitleRest(@PathVariable("id") Long titleId) {	
     	return titleRepository.findById(titleId);
     }    
 }

@@ -1,0 +1,18 @@
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+	
+<div>
+
+	<div>
+	<h3 th:inline="text">Hello
+		[[${#httpServletRequest.remoteUser}]] :)</h3>
+	</div>
+	<a href="/watchlist" class="btn btn-outline-success">Watchlist</a>
+	<a href="/watchedlist" class="btn btn-outline-success">Watchedlist</a>
+	
+	<div style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+		</form>
+	</div>
+</div>

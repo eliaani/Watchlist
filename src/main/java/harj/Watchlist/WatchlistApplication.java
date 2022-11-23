@@ -41,8 +41,17 @@ public class WatchlistApplication {
 			softwareRepository.save(new Software("Youtube"));
 			softwareRepository.save(new Software("-"));
 			
-			titleRepository.save(new Title("leffa1", "Teemu","Leffa", 10 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("HBO").get(0), "Yes" ));
-			titleRepository.save(new Title("sarja2", "Stefan","Sarja", 10 , categoryRepository.findByname("Comedy").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
+			titleRepository.save(new Title("leffa1", "Teemu","Movie", 10 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("HBO").get(0), "Yes" ));
+			titleRepository.save(new Title("leffa2", "Teemu","Movie", 10 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("HBO").get(0), "Yes" ));
+			titleRepository.save(new Title("leffa3", "Teemu","Movie", 10 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("HBO").get(0), "Yes" ));
+			titleRepository.save(new Title("leffa4", "Teemu","Movie", 10 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("HBO").get(0), "Yes" ));
+			titleRepository.save(new Title("leffa5", "Teemu","Movie", 10 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
+			titleRepository.save(new Title("leffa6", "Teemu","Movie", 10 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
+			titleRepository.save(new Title("leffa7", "Teemu","Movie", 10 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
+			titleRepository.save(new Title("sarja1", "Stefan","Series", 10 , categoryRepository.findByname("Comedy").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
+			titleRepository.save(new Title("sarja2", "Stefan","Series", 10 , categoryRepository.findByname("Comedy").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
+			titleRepository.save(new Title("sarja3", "Stefan","Series", 10 , categoryRepository.findByname("Sci-fi").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
+			titleRepository.save(new Title("sarja4", "Stefan","Series", 10 , categoryRepository.findByname("Sci-fi").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
 			
 			
 			applicationUserRepository.save(new ApplicationUser("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN"));

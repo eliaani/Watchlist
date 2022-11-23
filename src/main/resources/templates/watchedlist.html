@@ -3,48 +3,47 @@
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
-<title>Watchlist</title>
+<title>Watchedlist</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
 	th:href="@{/css/bootstrap.min.css}" />
-	
 <body style="margin: 15px">
-	<h1>Watchlist</h1>
+	<h1>Watchedlist</h1>
 	
 	<div th:replace="navbar.html">
 	</div>
-	
+
 	<div sec:authorize="hasAuthority('ADMIN')" class="col-md-4" style="padding: 30px 0">
 		<a href="/add" class="btn btn-success">Add Entry</a>
 	</div>
 	
-
+	
 	<table class="table table-striped">
 		<tr>
 			<th>Title</th>
 			<th>Recommender</th>
 			<th>Where to watch</th>
 			<th>Type</th>
+			<th>Grade</th>
 			<th>Category</th>
 			<th></th>
 			<th></th>
-			<th></th>
 		</tr>
-		<tr th:each="Title : ${Titles}" th:if="${Title.watched} == 'No'">
+		<tr th:each="Title : ${Titles}" th:if="${Title.watched} == 'Yes'">
 			<td th:text="${Title.name}"></td>
 			<td th:text="${Title.recommend}"></td>
 			<td th:text="${Title.software.name}"></td>
 			<td th:text="${Title.type}"></td>
-			<td> <a th:text="${Title.category.name}" th:href="@{/listbycategory/{id}(id=${Title.category.id})}"></a></td>
+			<td th:text="${Title.grade}"></td>
+			<td> <a th:text="${Title.category.name}" th:href="@{/listbycategorywatched/{id}(id=${Title.category.id})}"></a></td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a
-				class="btn btn-danger" th:href="@{/delete/{id}(id=${Title.id})}">Delete</a></td>
+				class="btn btn-danger" th:href="@{/deletewatched/{id}(id=${Title.id})}">Delete</a></td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a
-				class="btn btn-success" th:href="@{/edit/{id}(id=${Title.id})}">Edit</a></td>
-			<td sec:authorize="hasAuthority('ADMIN')"><a
-				class="btn btn-success" th:href="@{/watched/{id}(id=${Title.id})}">Watched</a></td>
+				class="btn btn-success" th:href="@{/editwatched/{id}(id=${Title.id})}">Edit</a></td>
 		</tr>
 	</table>
+
 
 </body>
 </html>

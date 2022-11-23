@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Edit entry</title>
+    <title>Watchedlist</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
@@ -29,15 +29,14 @@
     </style>
 
 <body style="margin: 15px">
-	<h1>Watchlist</h1>
-	
+	<h1>Watchedlist</h1>
 	<div th:replace="navbar.html">
 	</div>
 	
 	<h2>Edit title info</h2>
 	
 	<div>
-		<form th:object="${edit}" th:action="@{/save}" action="#" method="post">
+		<form th:object="${edit}" th:action="@{/savewatched}" action="#" method="post">
 			<input type="hidden" id="id" th:field="*{id}" />
 			
 			<div>
