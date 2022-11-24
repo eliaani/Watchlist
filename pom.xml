@@ -46,6 +46,11 @@
 			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
 		<dependency>
+        	<groupId>com.heroku.sdk</groupId>
+        	<artifactId>heroku-maven-plugin</artifactId>
+        	<version>3.0.5</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 		</dependency>
