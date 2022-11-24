@@ -42,8 +42,9 @@ class WatchlistApplicationTests {
 	@Test
 	public void findByCategoryShouldReturnTitles() {
 		List<Title> titles = titleRepository.findByCategoryName("Action");
-		assertEquals(titles.size(), 2);
+		assertEquals(titles.size(), 1);
 	}
+	
 	
 	
 	@Test
