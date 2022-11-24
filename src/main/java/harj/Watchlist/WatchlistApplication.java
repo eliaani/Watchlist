@@ -26,32 +26,36 @@ public class WatchlistApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner BookStuff(TitleRepository titleRepository, CategoryRepository categoryRepository, ApplicationUserRepository applicationUserRepository, SoftwareRepository softwareRepository) {
+	public CommandLineRunner watchlistApp(TitleRepository titleRepository, CategoryRepository categoryRepository, ApplicationUserRepository applicationUserRepository, SoftwareRepository softwareRepository) {
 		return (args) -> {
 			categoryRepository.save(new Category("Action"));
 			categoryRepository.save(new Category("Sci-fi"));
 			categoryRepository.save(new Category("Comedy"));
 			categoryRepository.save(new Category("Drama"));
 			categoryRepository.save(new Category("Crime"));
-			categoryRepository.save(new Category("-"));
+			categoryRepository.save(new Category("Romance"));
+			categoryRepository.save(new Category("Adventure"));
+			categoryRepository.save(new Category("Horror"));
+			categoryRepository.save(new Category("Fantasy"));
 			
 			softwareRepository.save(new Software("Netflix"));
 			softwareRepository.save(new Software("HBO"));
 			softwareRepository.save(new Software("Disney+"));
 			softwareRepository.save(new Software("Youtube"));
-			softwareRepository.save(new Software("-"));
+			softwareRepository.save(new Software("Prime video"));
+			softwareRepository.save(new Software("None"));
 			
-			titleRepository.save(new Title("leffa1", "Teemu","Movie", 10 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("HBO").get(0), "Yes" ));
-			titleRepository.save(new Title("leffa2", "Teemu","Movie", 10 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("HBO").get(0), "Yes" ));
-			titleRepository.save(new Title("leffa3", "Teemu","Movie", 10 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("HBO").get(0), "Yes" ));
-			titleRepository.save(new Title("leffa4", "Teemu","Movie", 10 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("HBO").get(0), "Yes" ));
-			titleRepository.save(new Title("leffa5", "Teemu","Movie", 10 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
-			titleRepository.save(new Title("leffa6", "Teemu","Movie", 10 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
-			titleRepository.save(new Title("leffa7", "Teemu","Movie", 10 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
-			titleRepository.save(new Title("sarja1", "Stefan","Series", 10 , categoryRepository.findByname("Comedy").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
-			titleRepository.save(new Title("sarja2", "Stefan","Series", 10 , categoryRepository.findByname("Comedy").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
-			titleRepository.save(new Title("sarja3", "Stefan","Series", 10 , categoryRepository.findByname("Sci-fi").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
-			titleRepository.save(new Title("sarja4", "Stefan","Series", 10 , categoryRepository.findByname("Sci-fi").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
+			titleRepository.save(new Title("Die Hard", "Teemu","Movie", 0 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("Netflix").get(0), "No" ));
+			titleRepository.save(new Title("Die Hard 2", "Teemu","Movie", 0 , categoryRepository.findByname("Action").get(0), softwareRepository.findByname("Netflix").get(0), "No" ));
+			titleRepository.save(new Title("It", "Teemu","Movie", 6 , categoryRepository.findByname("Horror").get(0), softwareRepository.findByname("Netflix").get(0), "Yes" ));
+			titleRepository.save(new Title("Game of thrones", "Teemu","Series", 8 , categoryRepository.findByname("Fantasy").get(0), softwareRepository.findByname("HBO").get(0), "Yes" ));
+			titleRepository.save(new Title("Expanse", "Teemu","Series", 0 , categoryRepository.findByname("Sci-fi").get(0), softwareRepository.findByname("Prime video").get(0), "No" ));
+			titleRepository.save(new Title("Friends", "Teemu","Series", 0 , categoryRepository.findByname("Comedy").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
+			titleRepository.save(new Title("Brooklyn 99", "Teemu","Series", 0 , categoryRepository.findByname("Comedy").get(0), softwareRepository.findByname("Netflix").get(0), "No" ));
+			titleRepository.save(new Title("The good place", "Stefan","Series", 0 , categoryRepository.findByname("Comedy").get(0), softwareRepository.findByname("Netflix").get(0), "No" ));
+			titleRepository.save(new Title("Ozark", "Stefan","Series", 0 , categoryRepository.findByname("Crime").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
+			titleRepository.save(new Title("Witcher", "Stefan","Series", 0 , categoryRepository.findByname("Fantasy").get(0), softwareRepository.findByname("Netflix").get(0), "No" ));
+			titleRepository.save(new Title("Rick and Morty", "Stefan","Series", 0 , categoryRepository.findByname("Sci-fi").get(0), softwareRepository.findByname("HBO").get(0), "No" ));
 			
 			
 			applicationUserRepository.save(new ApplicationUser("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN"));

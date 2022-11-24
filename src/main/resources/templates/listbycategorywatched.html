@@ -48,9 +48,10 @@
 			<td th:text="${Title.grade}"></td>
 			<td th:text="${Title.category.name}"></td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a
-				class="btn btn-danger" th:href="@{/deletewatched/{id}(id=${Title.id})}">Delete</a></td>
-			<td sec:authorize="hasAuthority('ADMIN')"><a
 				class="btn btn-success" th:href="@{/editwatched/{id}(id=${Title.id})}">Edit</a></td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a
+				class="btn btn-danger" th:href="@{/deletewatched/{id}(id=${Title.id})}">Delete</a></td>
+
 
 		</tr>
 	</table>

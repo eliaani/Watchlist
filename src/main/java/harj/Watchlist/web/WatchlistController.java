@@ -38,6 +38,11 @@ public class WatchlistController {
 		return "watchlist";
 	}
 	
+	@GetMapping("/error")
+	public String errorpage(Model model) {
+		return "error";
+	}
+	
 	@GetMapping("watchedlist")
 	public String listAllWatched(Model model) {
 		model.addAttribute("Titles", titleRepository.findAll());
@@ -66,7 +71,13 @@ public class WatchlistController {
     }
     
     @PostMapping("savewatched")
-    public String saveWatchedTitle(Title title){
+    public String saveWatchedtitle(@Valid @ModelAttribute("add")Title title, BindingResult bindingresult, Model model){
+    	boolean thereAreErrors = bindingresult.hasErrors();
+    	if (thereAreErrors) {
+        	model.addAttribute("categories", categoryRepository.findAll());
+        	model.addAttribute("softwares", softwareRepository.findAll());
+    		return "addtitle";
+    	}
         titleRepository.save(title);
         return "redirect:watchedlist";
     }

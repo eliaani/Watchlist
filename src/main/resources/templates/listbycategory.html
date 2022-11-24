@@ -48,11 +48,12 @@
 			<td th:text="${Title.type}"></td>
 			<td th:text="${Title.category.name}"></td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a
-				class="btn btn-danger" th:href="@{/delete/{id}(id=${Title.id})}">Delete</a></td>
+				class="btn btn-success" th:href="@{/watched/{id}(id=${Title.id})}">Watched</a></td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a
 				class="btn btn-success" th:href="@{/edit/{id}(id=${Title.id})}">Edit</a></td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a
-				class="btn btn-success" th:href="@{/watched/{id}(id=${Title.id})}">Watched</a></td>
+				class="btn btn-danger" th:href="@{/delete/{id}(id=${Title.id})}">Delete</a></td>
+
 
 		</tr>
 	</table>

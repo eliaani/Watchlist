@@ -18,10 +18,9 @@ public class Title {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@NotEmpty
+	@NotEmpty(message="Name can't be empty!")
 	private String name;
 	
-	@NotEmpty
 	private String recommend;
 	
 	private String type;

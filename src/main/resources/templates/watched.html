@@ -4,16 +4,21 @@
     <title>Edit entry</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-
-
+<style>
+a{
+font-size: 25px;
+}
+</style>
 <body style="margin: 15px">
+<h1>Watchlist</h1>
+<div th:replace="navbar.html">
+</div>
+<div >
+	<a>How was  </a>
+	<a th:text=${tittel.name}></a>
+	<a>?</a>
+</div>
 
-	<h1>How was </h1>
-	<h1 th:text=${tittel.name}></h1>
-	
-		<div th:replace="navbar.html">
-	</div>
-	
 	<div>
 		<form th:object="${edit}" th:action="@{/save}" action="#" method="post">
 		
@@ -23,19 +28,21 @@
 			
 			<input type="hidden" id="recommend" th:field="*{recommend}"/>
 			
-			<div>
+			<div style="display: none;">
 			<label for="softwarelist">Software</label>
-			<select id="softwarelist" th:field ="*{software}" class = "form-control">
+			<select id="softwarelist" th:field ="*{software}">
 				<option th:each="software: ${softwares}" th:value="${software.id}" th:text="${software.name}"></option>
 			</select>
 			</div>
 			
-			<div>
+			<div style="display: none;">
 			<label for="categorylist">Category</label>
-			<select id="categorylist" th:field ="*{category}" class = "form-control">
+			<select id="categorylist" th:field ="*{category}">
 				<option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
 			</select>
 			</div>
+			
+			<input type="hidden" th:value="${category}" th:attr="category='category'"/>
 			
 			<input type="hidden" id="type" th:field="*{type}" />
 			
@@ -44,9 +51,9 @@
 			<input type="number" id="grade" th:field="*{grade}" />
 			</div>
 			
-			<div>
+			<div style="display: none;">
 			<label for="seen">Have you seen it?</label>
-			<select id="seen" th:field ="*{watched}" class = "form-control">
+			<select id="seen" th:field ="*{watched}">
     			<option value="Yes">Yes</option>
 			</select>
 			</div>

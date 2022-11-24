@@ -4,9 +4,22 @@
     <title>Titles</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+
 <style>
 .error {
 	color: red;
+	width: 200px;
+	display: inline;
+	font-size: 20px;
+}
+input[type=text], select {
+	
+	width: 200px;
+}
+tr{
+	display: block;
+	width: 200px;
+	text-align: left;
 }
 </style>
 
@@ -23,7 +36,7 @@
 			<table>
 			
 			<tr>
-		  	<td> Name: <input type="text" th:field="*{name}" placeholder="name"/></td>
+		  	<td > Name: <input type="text" th:field="*{name}" placeholder="name"/></td>
 			<td th:if="${#fields.hasErrors('name')}" th:errorclass="error" th:errors="*{name}"/>
 			</tr>
 			
@@ -52,14 +65,14 @@
 			</tr>
 
 			<tr>
-			<td> Have you seen it <select id="watched" th:field ="*{watched}">
+			<td style="display: none;"> Have you seen it <select id="watched" th:field ="*{watched}">
 				<option value="No">No</option>
     			<option value="Yes">Yes</option>
 			</select></td>
 			</tr>
 			
 			<tr>
-		  	<td> Grade <input type="number" id="grade" th:field="*{grade}"/></td>
+		  	<td>  <input type="hidden" id="grade" th:field="*{grade}"/></td>
 			</tr>
 			
 			</table>
